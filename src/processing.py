@@ -1,22 +1,19 @@
-def filter_by_state(user_input, status="EXECUTED"):
+def filter_by_state(user_input: list, status: str = "EXECUTED"):
     """
     функция, которая возвращает новый список словарей, у которых ключ state соответствует указанному значению
     """
     new_user_input = []
-    try:
-        for i in user_input:
-            if i.get("state") == status:
-                new_user_input.append(i)
-        return new_user_input  # возвращает отсортированный список
-    except KeyError:
-        return "Неверные данные"  # возвращает, если вводные данные неверны
+    for i in user_input:
+        if i.get("state") == status:
+            new_user_input.append(i)
+    return new_user_input  # возвращает отсортированный список.
 
 
-def sort_by_date(user_input):
+def sort_by_date(user_input: list, reverse: bool = True):
     """
     Функция, которая возвращает список отсортированный по дате.
     """
-    sort_date = sorted(user_input, key=lambda x: x["date"], reverse=True)
+    sort_date = sorted(user_input, key=lambda x: x["date"], reverse=reverse)
     return sort_date  # возвращает список отсортированный по дате
 
 
