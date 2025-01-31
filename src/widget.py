@@ -5,7 +5,7 @@ def mask_account_card(card_account_number):
     """
     функция которая определяет счет или номер карты и в зависимости этого маскирует введенные данные.
     """
-    first_word = card_account_number.split(" ")[0]
+    first_word = (card_account_number.split(" ")[0]).title
     masked_nums = card_account_number.split(" ")[-1]
     chek_words = len(card_account_number.split(" "))
     if first_word == "Счет":
