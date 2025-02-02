@@ -1,11 +1,11 @@
-from masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_card_number, get_mask_account
 
 
-def mask_account_card(card_account_number):
+def mask_account_card(card_account_number :str):
     """
     функция которая определяет счет или номер карты и в зависимости этого маскирует введенные данные.
     """
-    first_word = (card_account_number.split(" ")[0]).title
+    first_word = (card_account_number.split(" ")[0])
     masked_nums = card_account_number.split(" ")[-1]
     chek_words = len(card_account_number.split(" "))
     if first_word == "Счет":
@@ -17,22 +17,30 @@ def mask_account_card(card_account_number):
         elif chek_words == 3:
             type_card = " ".join([first_word, card_account_number.split(" ")[1]])
         number_card = get_mask_card_number(masked_nums)
+        if number_card == "Неверные данные!":
+            return number_card
         result = " ".join([type_card, number_card])
         return result  # возвращает замаскированную карту
+    else:
+        return "Неверные данные!"
 
 
-def get_date(input_date):
-    """
-    функция которая принимает дату и возвращает более понятную дату.
-    """
-    year_card = input_date[0:4]
-    mounth_card = input_date[5:7]
-    day_card = input_date[8:10]
-    result = ".".join([day_card, mounth_card, year_card])
-    return result  # возвращает готовую дату
+def get_date(input_date :str):
+     """
+     функция которая принимает дату и возвращает более понятную дату.
+     """
+     if len(input_date) == 26:
+        year_card = input_date[0:4]
+        mounth_card = input_date[5:7]
+        day_card = input_date[8:10]
+        result = ".".join([day_card, mounth_card, year_card])
+        return result  # возвращает готовую дату
+     else:
+         return "Неверный формат даты!"
 
 
-input_date = input("Введите дату карты: ")
+#input_date = input("Введите дату карты: ")
 
 
-card_account_number = input("Введите тип и номер карты или ваш Счет: ")
+# card_account_number = input("Введите тип и номер карты или ваш Счет: ")
+# print(f"{mask_account_card(card_account_number)}")
