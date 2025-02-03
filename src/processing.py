@@ -1,4 +1,7 @@
-def filter_by_state(user_input: list, status: str = "EXECUTED"):
+from typing import List, Dict, Any
+
+
+def filter_by_state(user_input: List[Dict[str, Any]], status: str = "EXECUTED") -> List[Dict[str, Any]]:
     """
     функция, которая возвращает новый список словарей, у которых ключ state соответствует указанному значению
     """
@@ -9,7 +12,7 @@ def filter_by_state(user_input: list, status: str = "EXECUTED"):
     return new_user_input  # возвращает отсортированный список.
 
 
-def sort_by_date(user_input: list, reverse: bool = True):
+def sort_by_date(user_input: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """
     Функция, которая возвращает список отсортированный по дате.
     """

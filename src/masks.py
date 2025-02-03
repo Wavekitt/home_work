@@ -1,4 +1,4 @@
-def get_mask_card_number(card_number: str):
+def get_mask_card_number(card_number: str) -> str:
     """
     функция, которая маскирует номер карты.
     """
@@ -18,7 +18,7 @@ def get_mask_card_number(card_number: str):
         return "Неверные данные!"  # возвращает при неверном номере карты
 
 
-def get_mask_account(account_number: str):
+def get_mask_account(account_number: str) -> str:
     """
     функция, которая маскирует номер аккаунта
     """

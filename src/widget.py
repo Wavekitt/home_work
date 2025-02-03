@@ -1,7 +1,7 @@
 from src.masks import get_mask_card_number, get_mask_account
 
 
-def mask_account_card(card_account_number: str):
+def mask_account_card(card_account_number: str) -> str:
     """
     Функция, которая определяет счет или номер карты и в зависимости от этого маскирует
     введенные данные.
@@ -31,7 +31,7 @@ def mask_account_card(card_account_number: str):
         return "Неверные данные!"
 
 
-def get_date(input_date: str):
+def get_date(input_date: str) -> str:
     """
     Функция, которая принимает дату и возвращает более понятную дату.
     """
