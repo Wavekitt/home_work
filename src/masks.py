@@ -1,4 +1,4 @@
-def get_mask_card_number(card_number: str):
+def get_mask_card_number(card_number: str) -> str:
     """
     функция, которая маскирует номер карты.
     """
@@ -15,10 +15,10 @@ def get_mask_card_number(card_number: str):
         masked_card_number = " ".join(masked_card_number)
         return masked_card_number  # возвращает замаскированный номер карты.
     else:
-        return "Неверный номер карты!"  # возвращает при неверном номере карты
+        return "Неверные данные!"  # возвращает при неверном номере карты
 
 
-def get_mask_account(account_number: str):
+def get_mask_account(account_number: str) -> str:
     """
     функция, которая маскирует номер аккаунта
     """
@@ -27,8 +27,4 @@ def get_mask_account(account_number: str):
         account_number = account_number.replace(account_number[:2], "**")
         return account_number  # возвращает замаскированный номер аккаунта
     else:
-        return "Неверный номер аккаунта"  # возвращает при неверном номере аккаунта
-
-# Принимаем данные пользователя
-# card_number = input("Введите номер карты ")
-# account_number = input("Введите номер счета ")
+        return "Неверные данные!"  # возвращает при неверном номере аккаунта

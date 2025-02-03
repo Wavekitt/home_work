@@ -1,4 +1,7 @@
-def filter_by_state(user_input: list, status: str = "EXECUTED"):
+from typing import List, Dict, Any
+
+
+def filter_by_state(user_input: List[Dict[str, Any]], status: str = "EXECUTED") -> List[Dict[str, Any]]:
     """
     функция, которая возвращает новый список словарей, у которых ключ state соответствует указанному значению
     """
@@ -9,18 +12,9 @@ def filter_by_state(user_input: list, status: str = "EXECUTED"):
     return new_user_input  # возвращает отсортированный список.
 
 
-def sort_by_date(user_input: list, reverse: bool = True):
+def sort_by_date(user_input: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """
     Функция, которая возвращает список отсортированный по дате.
     """
     sort_date = sorted(user_input, key=lambda x: x["date"], reverse=reverse)
     return sort_date  # возвращает список отсортированный по дате
-
-
-# входные данные для проверки, можно их удалить или закомментировать
-user_input = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
-              {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
-              {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
-              {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'},
-              {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
-              {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
