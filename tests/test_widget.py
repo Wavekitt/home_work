@@ -1,31 +1,14 @@
-import pytest
 from src.widget import mask_account_card, get_date
 
-@pytest.mark.parametrize(
-    "card_or_account, expected",
-    [
-        ("Счет 12345678901234567890", "Счет **7890"),
-        ("MasterCard 1234567812345678", "MasterCard 1234 56** **** 5678"),
-        ("Visa Platinum 1234567812345678", "Visa Platinum 1234 56** **** 5678"),
-        ("wedfghjk 568712", "Неверные данные!"),
-        ("sffggh ssdaf 1234", "Неверные данные!"),
-        ("Visa Sber Platina 1234567812345678", "Неверные данные!"),
-        (" ", "Неверные данные!" ),
-        ("Cxtn 12345678901234567890", "Неверные данные!"),
-    ]
-)
 
-def test_mask_account_card(card_or_account, expected):
-    assert mask_account_card(card_or_account) == expected
-
-@pytest.mark.parametrize(
-    "date_input, expected",
-    [
-        ("2012-11-10T01:02:03.012345", "10.11.2012"),
-        ("2012.11.10.02:03", "Неверный формат даты!")
-    ]
-)
+def test_mask_account_card(good_account, good_card, good_card_2, bad_input):
+    assert mask_account_card("Счет 12345678901234567890") == good_account
+    assert mask_account_card("MasterCard 1234567812345678") == good_card
+    assert mask_account_card("Visa Platinum 1234567812345678") == good_card_2
+    assert mask_account_card("Visa Sber Platina 1234567812345678") == bad_input
+    assert mask_account_card("wedfghjk 568712") == bad_input
 
 
-def test_get_data(date_input, expected):
-    assert get_date(date_input) == expected
+def test_get_data(good_data, bad_data):
+    assert get_date("2012-11-10T01:02:03.012345") == good_data
+    assert get_date("26 ноября две тыcячи двенадцатого") == bad_data

@@ -28,8 +28,3 @@ def get_mask_account(account_number: str):
         return account_number  # возвращает замаскированный номер аккаунта
     else:
         return "Неверные данные!"  # возвращает при неверном номере аккаунта
-
-# Принимаем данные пользователя
-#card_number = input("Введите номер карты ")
-#account_number = input("Введите номер счета ")
-#print(f"{get_mask_account(account_number)}")
