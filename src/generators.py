@@ -11,6 +11,12 @@ def transaction_descriptions(not_sort_list):
         yield type_transaction
 
 
+def card_number_generator(start = 0, stop = 999999999999):
+    card_without_number = "0000000000000000"
+    for i in range(start, stop + 1):
+        card_number = str(f"{card_without_number[:-len(str(i))]}{i}")
+        yield f"{str(card_number[0:4])} {card_number[4:8]} {card_number[8:12]} {card_number[12:]}"
+
 
 not_sort_list = [
     {
@@ -86,6 +92,11 @@ filtered_transactions = filter_by_currency(not_sort_list, status="USD")
 for transaction in range(2):
     print(next(filtered_transactions))
 
+
 descriptions = transaction_descriptions(not_sort_list)
 for descrption in range(4):
     print(next(descriptions))
+
+
+for new_card in card_number_generator(1, 5):
+    print(new_card)
