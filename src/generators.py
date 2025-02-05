@@ -1,8 +1,15 @@
 def filter_by_currency(not_sort_list, status="USD"):
     for transaction in not_sort_list:
-        currency_code = transaction.get("operationAmount", {}).get("currency", {}).get("code")
-        if currency_code == status:
+        wallet = transaction.get("operationAmount", {}).get("currency", {}).get("code")
+        if wallet == status:
             yield transaction
+
+
+def transaction_descriptions(not_sort_list):
+    for transaction in not_sort_list:
+        type_transaction = transaction.get("description")
+        yield type_transaction
+
 
 
 not_sort_list = [
@@ -75,7 +82,10 @@ not_sort_list = [
     }
 ]
 
-filtered_transactions = filter_by_currency(not_sort_list, status="RUB")
-
+filtered_transactions = filter_by_currency(not_sort_list, status="USD")
 for transaction in range(2):
     print(next(filtered_transactions))
+
+descriptions = transaction_descriptions(not_sort_list)
+for descrption in range(4):
+    print(next(descriptions))
