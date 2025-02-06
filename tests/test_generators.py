@@ -1,6 +1,6 @@
 import pytest
 
-from typing import List
+from typing import List, Dict, Any
 
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
@@ -78,7 +78,7 @@ def test_filter_by_currency(filtred_usd: List[dict]) -> None:
     assert filter_by_currency(test_usd)
 
 
-def test_transaction_descriptions() -> None:
+def test_transaction_descriptions(transaction_question: List[Dict[str, Any]]) -> None:
     test_transaction = [
         {
             "id": 939719570, "state": "EXECUTED",
