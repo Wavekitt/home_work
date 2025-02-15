@@ -2,7 +2,7 @@ from functools import wraps
 from typing import Any, Callable, Optional
 
 
-def logs(filename: Optional[str] = None) -> Callable:
+def log(filename: Optional[str] = None) -> Callable:
     """
     Декоратор, нужный для логов в консоли
     """
