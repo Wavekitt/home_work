@@ -21,10 +21,10 @@ def test_good_log(capsys: Any) -> None:
 
 def test_bad_log(capsys: Any) -> None:
     with pytest.raises(ZeroDivisionError):
-        bad_function(4, 0)
-        see_logs = capsys.readouterr()
-        assert "bad_function error: division by zero" in see_logs.out
-        assert "input: (4, 0), {}" in see_logs.out
+        bad_function(1, 0)
+    see_logs = capsys.readouterr()
+    assert "bad_function error: division by zero" in see_logs.out
+    assert "input: (1, 0), {}" in see_logs.out
 
 
 def test_logs_in_file(tmp_path: Any) -> None:
