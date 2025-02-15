@@ -4,7 +4,7 @@ from typing import Any, Callable, Optional
 
 def log(filename: Optional[str] = None) -> Callable:
     """
-    Декоратор, нужный для логов в консоли
+    декоратор, который создает логи
     """
 
     def logging_decorator(func: Callable) -> Callable:
