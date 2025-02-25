@@ -43,10 +43,22 @@ state соответствует указанному значению.
 # Домашнее задание 11.2 Декораторы
 
 ## Описание:
-В данные проект были добавлены файлы 1.decorators.py и 2.test_decorators.py.
+В данный проект были добавлены файлы 1.decorators.py и 2.test_decorators.py.
 1. В decorators.py был реализован декоратор log.
 log - декоратор, который создает логи.
 2. В test_decorators.py были реализованны тесты для decorators.py
+
+# Домашнее задание 12.1 Библиотеки json, requests и datetime
+
+## 
+В данный проект были добавлены файлы utils.py, external_api.py
+В файле utils.py реализованны функции: 1. list_return 2. summ_transactions.
+1. list_return - Функция, которая берет JSON файл и возвращает список словарей
+2. summ_transactions Функция, которая возвращает сумму транзакций в рублях.
+В файле external_api.py была реализованна функция convertation_curency, которая
+конвертирует валюты
+Были написаны тесты для utils.py и external_api.py.
+Создан html отчет о прохождении тестов.
 
 ## Установка:
 
