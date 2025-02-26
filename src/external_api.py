@@ -22,4 +22,4 @@ def convertation_curency(currency: str, rub: str, amount: float) -> Optional[flo
         result = response.json()["result"]
         return result
     else:
-        return Error
+        return "Error"
