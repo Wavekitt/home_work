@@ -9,7 +9,6 @@ file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
 
-
 def get_mask_card_number(card_number: str) -> str:
     """
     функция, которая маскирует номер карты.
@@ -44,6 +43,7 @@ def get_mask_account(account_number: str) -> str:
     else:
         logger.error("Неверные данные!")
         return "Неверные данные!"  # возвращает при неверном номере аккаунта
+
 
 card_number = "1234567890123456"
 account_number = "12345678901234567890"

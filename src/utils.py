@@ -56,4 +56,5 @@ def summ_transactions(transaction_list: dict) -> float:
     logger.info(f"получаем сумму всех транзакций {all_sum}")
     return all_sum
 
+
 print(summ_transactions(transaction_list=list_return(file_path)))

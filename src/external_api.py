@@ -2,7 +2,7 @@ import os
 from typing import Optional
 import requests
 from dotenv import load_dotenv
-from webbrowser import Error
+
 
 load_dotenv("../.env")
 
