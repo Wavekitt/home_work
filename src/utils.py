@@ -1,7 +1,7 @@
 import json
 from src.external_api import convertation_curency
 
-file_path = "data/operations.json"
+file_path = "../data/operations.json"
 
 
 def list_return(file_path: str) -> list:
@@ -25,10 +25,18 @@ def summ_transactions(transaction_list: dict) -> float:
     """
     Функция, которая возвращает сумму транзакций в рублях.
     """
-    currency = transaction_list["operationAmount"]["currency"]["code"]
-    amount = transaction_list["operationAmount"]["amount"]
-    if currency == "RUB":
-        return amount
-    else:
-        alternative_summ = convertation_curency(currency, "RUB", amount)
-        return alternative_summ
+    # all_sum = 0
+    # for i in transaction_list:
+    #     try:
+    #         currency = i["operationAmount"]["currency"]["code"]
+    #         amount = i["operationAmount"]["amount"]
+    #         if currency == "RUB":
+    #             all_sum += float(amount)
+    #         else:
+    #             alternative_summ = convertation_curency(currency, "RUB", amount)
+    #             all_sum += float(alternative_summ)
+    #     except KeyError:
+    #         all_sum += 0
+    # return all_sum
+
+print(summ_transactions(transaction_list=list_return(file_path)))

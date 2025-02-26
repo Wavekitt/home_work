@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 from webbrowser import Error
 
-load_dotenv(".env_example")
+load_dotenv("../.env")
 
 api_key = os.getenv("API_KEY")
 
@@ -20,8 +20,6 @@ def convertation_curency(currency: str, rub: str, amount: float) -> Optional[flo
     response = requests.get(url)
     if response.status_code == 200:
         result = response.json()["result"]
-        print(f"сконвертировали валюту из {amount} в {rub}")
         return result
     else:
-        print("Не удалось сконвертировать валюту")
         return Error
