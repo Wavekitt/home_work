@@ -138,6 +138,7 @@ def transaction_usd():
         "to": "Счет 35383033474447895560"
     }
 
+
 @pytest.fixture
 def transaction_question() -> List[str]:
     return [
