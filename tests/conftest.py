@@ -1,5 +1,6 @@
+from typing import Any, Dict, List, Union
+
 import pytest
-from typing import List, Dict, Union, Any
 
 
 @pytest.fixture
@@ -204,4 +205,32 @@ def filtred_list_date() -> List[Dict[str, Union[int, str]]]:
          'date': '2018-09-12T21:27:25.241689'},
         {'id': 939719570, 'state': 'EXECUTED',
          'date': '2018-06-30T02:08:58.425572'}
+    ]
+
+
+@pytest.fixture
+def sample_transactions():
+    return [
+        {"description": "Перевод по номеру телефона", "categories": "Переводы"},
+        {"description": "Перевод на карту клиента", "categories": "Переводы"},
+        {"description": "Покупка в магазине", "categories": "Оплата"},
+        {"description": "Перевод по номеру телефона", "categories": "Переводы"},
+        {"description": "Покупка в магазине", "categories": "Оплата"},
+        {"description": "Покупка в магазине", "categories": "Оплата"},
+        {"description": "Покупка в магазине", "categories": "Оплата"},
+        {"description": "Оплата за кредит", "categories": "Списание кредитов"},
+    ]
+
+
+@pytest.fixture
+def sample_categories():
+    return ["Переводы", "Оплата", "Списание кредитов"]
+
+
+@pytest.fixture
+def mock_transactions():
+    return [
+        {"description": "Перевод по номеру телефона", "categories": "Переводы", "state": "EXECUTED"},
+        {"description": "Покупка в магазине", "categories": "Оплата", "state": "CANCELED"},
+        {"description": "Оплата за кредит", "categories": "Списание кредитов", "state": "PENDING"},
     ]

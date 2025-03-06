@@ -1,19 +1,6 @@
 import re
 from collections import Counter
-from unicodedata import category
 
-transactions = [
-    {"description": "Перевод по номеру телефона", "categories": "Переводы"},
-    {"description": "Перевод на карту клиента", "categories": "Переводы"},
-    {"description": "Покупка в магазине", "categories": "Оплата"},
-    {"description": "Перевод по номеру телефона", "categories": "Переводы"},
-    {"description": "Покупка в магазине", "categories": "Оплата"},
-    {"description": "Покупка в магазине", "categories": "Оплата"},
-    {"description": "Покупка в магазине", "categories": "Оплата"},
-    {"description": "Оплата за кредит", "categories": "Списание кредитов"},
-]
-
-categories = ["Переводы", "Оплата", "Списание кредитов"]
 
 def search_transactions(transactions, search_string):
     """
@@ -39,5 +26,16 @@ def count_transactions(transactions, categories):
                 categories_count[category] += 1
     return categories_count
 
-print(search_transactions(transactions, search_string="телефона"))
-print(count_transactions(transactions, categories))
+
+transactions = [
+    {"description": "Перевод по номеру телефона", "categories": "Переводы"},
+    {"description": "Перевод на карту клиента", "categories": "Переводы"},
+    {"description": "Покупка в магазине", "categories": "Оплата"},
+    {"description": "Перевод по номеру телефона", "categories": "Переводы"},
+    {"description": "Покупка в магазине", "categories": "Оплата"},
+    {"description": "Покупка в магазине", "categories": "Оплата"},
+    {"description": "Покупка в магазине", "categories": "Оплата"},
+    {"description": "Оплата за кредит", "categories": "Списание кредитов"},
+]
+
+categories = ["Переводы", "Оплата", "Списание кредитов"]
