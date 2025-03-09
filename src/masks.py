@@ -1,9 +1,12 @@
 import logging
+import os
 
-
+log_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
+os.makedirs(log_dir, exist_ok=True)
+log_file_masks = os.path.join(log_dir, "masks_card_account.log")
 logger = logging.getLogger("masks_card_account")
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("../logs/masks_card_account.log", "w", encoding="utf-8")
+file_handler = logging.FileHandler(log_file_masks, "w", encoding="utf-8")
 file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -43,8 +46,3 @@ def get_mask_account(account_number: str) -> str:
     else:
         logger.error("Неверные данные!")
         return "Неверные данные!"  # возвращает при неверном номере аккаунта
-
-
-card_number = "1234567890123456"
-account_number = "12345678901234567890"
-print(get_mask_card_number("sdfdf"))

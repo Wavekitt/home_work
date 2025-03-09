@@ -1,6 +1,6 @@
-from src.processing import filter_by_state, sort_by_date
+from typing import Any, Dict, List
 
-from typing import List, Dict, Any
+from src.processing import filter_by_state, sort_by_date
 
 
 def test_filter_by_state(filtred_list_state: List[Dict[str, Any]]) -> None:
